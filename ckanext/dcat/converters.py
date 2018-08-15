@@ -37,7 +37,7 @@ def dcat_to_ckan(dcat_dict):
     package_dict['resources'] = []
     for distribution in dcat_dict.get('distribution', []):
         resource = {
-            'name': distribution.get('title'),
+            'name': distribution.get('title') or package_dict['title'],
             'description': distribution.get('description'),
             'url': distribution.get('downloadURL') or distribution.get('accessURL'),
             'format': distribution.get('format'),
